@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import uniqid from "uniqid";
 import ContactForm from "./ContactForm";
 import Filter from "./Filter";
@@ -30,7 +30,7 @@ function Phonebook() {
     }
   }, [contacts]);
 
-  const addContact = (data) => {
+  const addContact = useCallback((data) => {
     const contact = {
       ...data,
       id: uniqid.time()
@@ -39,7 +39,7 @@ function Phonebook() {
       return alert(`${data.name} is already in contacts.`);
     }
     setContacts([...contacts, contact]);
-  };
+  }, [contacts]);
 
   const haveContact = (data) => {
     const name = contacts.some((contact) => contact.name === data.name);

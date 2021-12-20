@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import PropTypes from "prop-types";
 import style from "./ContactForm.module.css";
 import { initialState } from "./initialState"
@@ -52,7 +52,7 @@ function ContactForm({ addContact }) {
     );
   }
 
-export default ContactForm;
+export default memo(ContactForm);
 
 ContactForm.propTypes = {
   addContact: PropTypes.func.isRequired
