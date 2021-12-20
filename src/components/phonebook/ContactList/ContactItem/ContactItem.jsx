@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { memo } from "react";
 import style from "./ContactItem.module.css"
 
 const ContactItem = ({ name, number, delet }) => {
@@ -10,7 +11,7 @@ const ContactItem = ({ name, number, delet }) => {
     )
 }
 
-export default ContactItem;
+export default memo(ContactItem);
 
 ContactItem.propTypes = {
     name: PropTypes.string.isRequired,

@@ -1,6 +1,6 @@
 import ContactItem from "./ContactItem";
 import PropTypes from "prop-types";
-
+import { memo } from "react";
 const ContactList = ({ contacts, deleteContact }) => {
   const elements = contacts.map((item) => (
     <ContactItem key={item.id} name={item.name} number={item.number} delet={() => deleteContact(item.id)}/>
@@ -8,7 +8,7 @@ const ContactList = ({ contacts, deleteContact }) => {
   return <ul>{elements}</ul>;
 };
 
-export default ContactList;
+export default memo(ContactList);
 
 ContactList.propTypes = {
     contacts: PropTypes.arrayOf(PropTypes.shape({

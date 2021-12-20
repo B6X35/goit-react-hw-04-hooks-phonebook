@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import style from "./Filter.module.css"
-
+import { memo } from "react";
 const Filter = ({ value, onFilter }) => {
   return (
     <div>
@@ -19,7 +19,7 @@ const Filter = ({ value, onFilter }) => {
   );
 };
 
-export default Filter;
+export default memo(Filter);
 
 Filter.propTypes = {
     value: PropTypes.string.isRequired,
